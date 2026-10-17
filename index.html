@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>野菜と肉の焼き方ガイド｜道の駅とよはし バックヤードパーク</title>
+<meta name="description" content="道の駅とよはし バックヤードパークのBBQ 焼き方ガイド。お肉・野菜の焼き時間と見分け方、道具と安全のおやくそく。">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241F1C; --sub:#7A6A5C; --line:#E2D9C9;
+    --paper:#FFFFFF; --bg:#F7F3EC; --frame:#F1EBDF; --frame-line:#DDD3C1;
+    --meat:#B4521F; --veg:#4E6B3C; --safe:#241F1C;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; scroll-padding-top:64px}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Noto Sans JP",system-ui,-apple-system,"Hiragino Sans",sans-serif;
+    line-height:1.7; -webkit-text-size-adjust:100%}
+  img{display:block; max-width:100%}
+  .wrap{max-width:960px; margin:0 auto; padding:0 16px}
+
+  header.hero{background:var(--paper); border-bottom:2px solid var(--ink)}
+  header.hero .wrap{padding-top:36px; padding-bottom:24px; display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:12px}
+  .eyebrow{color:var(--meat); font-weight:700; letter-spacing:.25em; font-size:13px; margin:0 0 4px}
+  h1{margin:0; font-size:clamp(28px,6vw,40px); font-weight:900; line-height:1.25}
+  .place{text-align:right; font-size:13px; color:var(--sub); line-height:1.5}
+  .place b{display:block; color:var(--ink); font-size:14px}
+
+  nav.tabs{position:sticky; top:0; z-index:10; background:rgba(247,243,236,.94); backdrop-filter:blur(6px); border-bottom:1px solid var(--line)}
+  nav.tabs .wrap{display:flex; gap:8px; padding-top:10px; padding-bottom:10px; overflow-x:auto}
+  nav.tabs a{flex:1 0 auto; text-align:center; text-decoration:none; font-weight:700; font-size:15px;
+    color:#fff; padding:8px 16px; border-radius:999px; min-height:40px}
+  .t-meat{background:var(--meat)} .t-veg{background:var(--veg)} .t-safe{background:var(--safe)}
+
+  section{padding:32px 0 8px}
+  .sec-head{display:flex; flex-wrap:wrap; align-items:center; gap:12px 16px; padding-bottom:14px; border-bottom:1.5px solid var(--ink); margin-bottom:20px}
+  .pill{display:inline-block; color:#fff; font-weight:700; font-size:20px; padding:4px 22px; border-radius:999px}
+  .sec-head p{margin:0; color:var(--sub); font-size:14px; flex:1 1 240px}
+  .sec-head p strong{color:var(--ink)}
+
+  .item{background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:16px; margin-bottom:16px;
+    display:grid; grid-template-columns:1fr; gap:16px}
+  @media (min-width:760px){ .item{grid-template-columns:minmax(0,1.75fr) minmax(0,1fr); align-items:center; padding:20px} }
+  .photos{display:grid; gap:8px; grid-template-columns:repeat(var(--n,2),minmax(0,1fr))}
+  figure{margin:0; position:relative; aspect-ratio:8/7; border-radius:10px; overflow:hidden;
+    background:var(--frame); border:1px solid var(--frame-line)}
+  figure img{width:100%; height:100%; object-fit:cover}
+  figure figcaption{position:absolute; top:8px; left:8px; color:#fff; font-size:11px; font-weight:700;
+    padding:2px 9px; border-radius:999px; background:var(--accent)}
+  figure.empty::after{content:"写真準備中"; position:absolute; inset:0; display:grid; place-items:center;
+    color:#B4A994; font-size:12px; letter-spacing:.08em}
+
+  .meat{--accent:var(--meat)} .veg{--accent:var(--veg)}
+  .info h3{margin:0; font-size:26px; font-weight:900; line-height:1.3}
+  .info .note{margin:2px 0 0; color:var(--sub); font-size:14px}
+  .info dl{margin:12px 0 0}
+  .info dt{color:var(--accent); font-weight:700; font-size:14px; margin-top:10px}
+  .info dd{margin:0; font-size:15px}
+  .info dd b{font-weight:700}
+
+  h2.sub{font-size:20px; font-weight:900; margin:8px 0 14px}
+  .tools{display:grid; gap:14px; grid-template-columns:1fr; margin-bottom:28px}
+  @media (min-width:640px){ .tools{grid-template-columns:repeat(3,1fr)} }
+  .tool{background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:14px}
+  .tool figure{aspect-ratio:16/7; margin-bottom:10px}
+  @media (min-width:640px){ .tool figure{aspect-ratio:4/3} }
+  .tool h3{margin:0; font-size:17px}
+  .tool p{margin:2px 0 0; color:var(--sub); font-size:14px}
+  .rules{display:grid; gap:14px; grid-template-columns:1fr; margin-bottom:28px}
+  @media (min-width:640px){ .rules{grid-template-columns:repeat(2,1fr)} }
+  .rule{background:#F4EDE1; border:1px solid var(--frame-line); border-radius:14px; padding:20px}
+  .rule h3{margin:0 0 6px; color:var(--meat); font-size:19px; font-weight:900}
+  .rule p{margin:0; font-size:15px}
+
+  footer{border-top:1px solid var(--line); margin-top:16px}
+  footer .wrap{padding-top:16px; padding-bottom:28px; font-size:12px; color:var(--sub)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">COOKING GUIDE</p>
+      <h1>野菜と肉の焼き方ガイド</h1>
+    </div>
+    <div class="place"><b>道の駅とよはし</b>バックヤードパーク</div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="ページ内メニュー">
+  <div class="wrap">
+    <a class="t-meat" href="#meat">お肉</a>
+    <a class="t-veg" href="#veg">野菜</a>
+    <a class="t-safe" href="#safety">道具と安全</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- お肉 -->
+  <section id="meat" class="meat">
+    <div class="sec-head">
+      <span class="pill" style="background:var(--meat)">お肉</span>
+      <p><strong>火加減は中火。</strong>コンロの温度が200度～250度をキープするようにしましょう。</p>
+    </div>
+
+    <article class="item">
+      <div class="photos" style="--n:3">
+        <figure><img src="images/chicken-before.jpg" alt="焼く前の鶏肉" loading="lazy"><figcaption>① 焼く前</figcaption></figure>
+        <figure class="empty"><figcaption>② 裏返し</figcaption></figure>
+        <figure class="empty"><figcaption>③ 焼き上がり</figcaption></figure>
+      </div>
+      <div class="info">
+        <h3>鶏肉</h3>
+        <dl>
+          <dt>焼き時間</dt><dd>皮目を下にして<b>6〜8分</b>、返して<b>5〜7分</b>。</dd>
+          <dt>見分け方</dt><dd>中心まで白くなり、刺すと透きとおった肉汁が出たら焼けています。</dd>
+        </dl>
+      </div>
+    </article>
+
+    <article class="item">
+      <div class="photos" style="--n:3">
+        <figure class="empty"><figcaption>① 焼く前</figcaption></figure>
+        <figure class="empty"><figcaption>② 裏返し</figcaption></figure>
+        <figure class="empty"><figcaption>③ 焼き上がり</figcaption></figure>
+      </div>
+      <div class="info">
+        <h3>豚肉</h3>
+        <dl>
+          <dt>焼き時間</dt><dd>片面<b>3〜4分</b>、返して<b>2〜3分</b>。</dd>
+          <dt>見分け方</dt><dd>赤みが残らず、全体が白っぽくなったら厚い部分は切って中まで確認を。</dd>
+        </dl>
+      </div>
+    </article>
+
+    <article class="item">
+      <div class="photos" style="--n:3">
+        <figure class="empty"><figcaption>① 焼く前</figcaption></figure>
+        <figure class="empty"><figcaption>② 裏返し</figcaption></figure>
+        <figure class="empty"><figcaption>③ 焼き上がり</figcaption></figure>
+      </div>
+      <div class="info">
+        <h3>牛肉</h3>
+        <dl>
+          <dt>焼き時間</dt><dd>片面<b>1〜2分</b>、返して<b>1分</b>ほど。返すのは一度だけ。</dd>
+          <dt>見分け方</dt><dd>上面にじわっと肉汁がにじんだら返しどき。焼き色がついたら食べごろです。</dd>
+        </dl>
+      </div>
+    </article>
+  </section>
+
+  <!-- 野菜 -->
+  <section id="veg" class="veg">
+    <div class="sec-head">
+      <span class="pill" style="background:var(--veg)">野菜</span>
+      <p><strong>Weberの温度が250℃</strong>になったら野菜を入れてください。</p>
+    </div>
+
+    <article class="item">
+      <div class="photos">
+        <figure><img src="images/nasu-before.jpg" alt="焼く前のナス" loading="lazy"><figcaption>① 焼く前</figcaption></figure>
+        <figure><img src="images/nasu-after.jpg" alt="焼き上がったナス" loading="lazy"><figcaption>② 焼き上がり</figcaption></figure>
+      </div>
+      <div class="info">
+        <h3>ナス</h3>
+        <p class="note">オリーブオイルを皮にたっぷり塗る</p>
+        <dl>
+          <dt>焼き時間</dt><dd>皮に薄く切り込みを2つ以上いれる<br>丸焼き<b>10分</b></dd>
+          <dt>見分け方</dt><dd>身がしんなりとろっとしたら</dd>
+        </dl>
+      </div>
+    </article>
+
+    <article class="item">
+      <div class="photos">
+        <figure><img src="images/shiitake-before.jpg" alt="焼く前のしいたけ" loading="lazy"><figcaption>① 焼く前</figcaption></figure>
+        <figure><img src="images/shiitake-after.jpg" alt="焼き上がったしいたけ" loading="lazy"><figcaption>② 焼き上がり</figcaption></figure>
+      </div>
+      <div class="info">
+        <h3>しいたけ</h3>
+        <p class="note">軸を取り、かさのまま</p>
+        <dl>
+          <dt>焼き時間</dt><dd>かさを下にして<b>6分</b></dd>
+          <dt>見分け方</dt><dd>くぼみに汁がたまったら焼き上がり<br>こぼさずどうぞ</dd>
+        </dl>
+      </div>
+    </article>
+
+    <article class="item">
+      <div class="photos">
+        <figure class="empty"><figcaption>① 焼く前</figcaption></figure>
+        <figure class="empty"><figcaption>② 焼き上がり</figcaption></figure>
+      </div>
+      <div class="info">
+        <h3>かぶ</h3>
+        <p class="note">皮にオリーブオイルをたっぷり塗る</p>
+        <dl>
+          <dt>焼き時間</dt><dd>丸焼き<b>40分</b>　蓋を開けないのがミソ</dd>
+          <dt>見分け方</dt><dd>皮が焦茶色になって、竹串がすっと通れば中まで火が入っています。</dd>
+        </dl>
+      </div>
+    </article>
+
+    <article class="item">
+      <div class="photos">
+        <figure><img src="images/onion-before.jpg" alt="焼く前の玉ねぎ" loading="lazy"><figcaption>① 焼く前</figcaption></figure>
+        <figure><img src="images/onion-after.jpg" alt="焼き上がった玉ねぎ" loading="lazy"><figcaption>② 焼き上がり</figcaption></figure>
+      </div>
+      <div class="info">
+        <h3>玉ねぎ</h3>
+        <p class="note">皮にオリーブオイルをたっぷり塗る</p>
+        <dl>
+          <dt>焼き時間</dt><dd>丸焼き<b>60分</b>　蓋を開けないのがミソ。</dd>
+          <dt>見分け方</dt><dd>皮が焦げたら食べごろ</dd>
+        </dl>
+      </div>
+    </article>
+  </section>
+
+  <!-- 道具と安全 -->
+  <section id="safety">
+    <div class="sec-head">
+      <span class="pill" style="background:var(--safe)">道具と安全</span>
+      <p>火を使います。はじめる前にみんなで確認してください。</p>
+    </div>
+
+    <h2 class="sub">そろえておく道具</h2>
+    <div class="tools">
+      <div class="tool"><figure class="empty"></figure><h3>トング</h3><p>生の肉用と、焼けたもの用で分けて使います。</p></div>
+      <div class="tool"><figure class="empty"></figure><h3>革手袋</h3><p>網や炭を動かすときは必ず着けてください。</p></div>
+      <div class="tool"><figure class="empty"></figure><h3>アルミホイル</h3><p>小さい野菜や、焦げやすいものを包むのに使います。</p></div>
+    </div>
+
+    <h2 class="sub">安全のおやくそく</h2>
+    <div class="rules">
+      <div class="rule"><h3>手を洗いましょう</h3><p>生の肉や魚にさわったあとは、そのつど手を洗ってください。</p></div>
+      <div class="rule"><h3>やけどにちゅうい</h3><p>グリルのまわりは熱くなっています。小さなお子さまから目を離さないでください。</p></div>
+      <div class="rule"><h3>網や炭は革手袋で</h3><p>軍手は熱が通ります。熱いものを動かすときは革手袋を使ってください。</p></div>
+      <div class="rule"><h3>点火はフタをあけて</h3><p>火をつけるときはフタをあけた状態で。燃料の継ぎ足しはしないでください。</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">道の駅とよはし バックヤードパーク</div>
+</footer>
+
+</body>
+</html>
